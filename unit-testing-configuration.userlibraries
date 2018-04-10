@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: com.athaydes:spock-reports:1.2.7">
+    <archive path="/Users/d061192/.m2/repository/com/athaydes/spock-reports/1.2.7/spock-reports-1.2.7.jar" />
+  </library>
+  <library name="Maven: junit:junit:4.12">
+    <archive path="/Users/d061192/.m2/repository/junit/junit/4.12/junit-4.12.jar" />
+  </library>
+  <library name="Maven: org.codehaus.groovy:groovy-all:2.4.4">
+    <archive path="/Users/d061192/.m2/repository/org/codehaus/groovy/groovy-all/2.4.4/groovy-all-2.4.4.jar" />
+  </library>
+  <library name="Maven: org.hamcrest:hamcrest-core:1.3">
+    <archive path="/Users/d061192/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
+  </library>
+  <library name="Maven: org.spockframework:spock-core:1.0-groovy-2.4">
+    <archive path="/Users/d061192/.m2/repository/org/spockframework/spock-core/1.0-groovy-2.4/spock-core-1.0-groovy-2.4.jar" />
+  </library>
+</eclipse-userlibraries>
+
