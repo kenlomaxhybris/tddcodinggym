@@ -13,19 +13,19 @@ class GOLSpec extends Specification {
     }
 
     @Unroll
-    def "Populating with #xys gives census #census"() {
+    def "Populating with #xys gives census #expectedCells"() {
         given:
         def gol = new GOL();
 
         expect:
-        gol.populate(xys).census() == census
+        gol.populate(xys ).cells.equals( expectedCells )
 
         where:
-        xys        || census
-        "1,1"      || "[1,1]"
-        "1,1, 2,2" || "[1,1, 2,2]"
-        "1,1, 1,1" || "[1,1]"
-    }
+        xys       || expectedCells
+        "1,1" ||  [ new Cell(1,1) ] as Set
+        "1,1, 2,2" ||  [ new Cell(1,1), new Cell(2,2) ] as Set
+        "1,1, 1,1" ||  [ new Cell(1,1)] as Set
+     }
 
     @Unroll
     def "Populating with #xys evolves to #census"() {
@@ -37,7 +37,7 @@ class GOLSpec extends Specification {
 
         where:
         xys   || census
-        "5,5, 6,5, 7,5" || "[6,5, 6,6, 6,4]"
+        "5,5, 6,5, 7,5" ||  [ new Cell(6,5), new Cell(6,6), new Cell(6,4) ] as Set
 
     }
 }

@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5a5d2b63-3351-487a-8cdf-ec03714b9a0e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tdd/coding/gym/ClassesUnderTestGoHere.txt" afterPath="$PROJECT_DIR$/src/main/java/tdd/coding/gym/ClassesUnderTestGoHere.txt" />
-      <change beforePath="$PROJECT_DIR$/unit-testing-configuration.iml" afterPath="$PROJECT_DIR$/unit-testing-configuration.iml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOL.java" afterPath="$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOL.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/EngineSpec.groovy" afterPath="$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/EngineSpec.groovy" />
+      <change beforePath="$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLSpec.groovy" afterPath="$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLSpec.groovy" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +35,7 @@
     <SUITE FILE_PATH="coverage/unit_testing_configuration$RomanNumeralsTest.coverage" NAME="RomanNumeralsTest Coverage Results" MODIFIED="1523278991836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tdd.coding.gym.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/unit_testing_configuration$gym_in_unit_testing_configuration.coverage" NAME="gym in unit-testing-configuration Coverage Results" MODIFIED="1523604934621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/unit_testing_configuration$gym_in_unit_testing_configuration.coverage" NAME="gym in unit-testing-configuration Coverage Results" MODIFIED="1523608374002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/unit_testing_configuration$RomanNumeralsSpec.coverage" NAME="RomanNumeralsSpec Coverage Results" MODIFIED="1523279084614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tdd.coding.gym.*</FILTER>
     </SUITE>
@@ -77,10 +77,30 @@
       <file leaf-file-name="GOLSpec.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLSpec.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="450">
+              <caret line="30" column="22" lean-forward="false" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
               <folding>
                 <element signature="e#24#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GOL.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
+                <element signature="e#452#453#0" expanded="true" />
+                <element signature="e#486#487#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+                <element signature="e#931#932#0" expanded="true" />
+                <element signature="e#961#962#0" expanded="true" />
+                <element signature="e#1255#1256#0" expanded="true" />
+                <element signature="e#1296#1297#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOLGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+              <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
               <folding>
                 <element signature="e#91#92#0" expanded="true" />
                 <element signature="e#121#122#0" expanded="true" />
@@ -114,30 +134,10 @@
       <file leaf-file-name="EngineSpec.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/EngineSpec.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="203">
+              <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding>
                 <element signature="e#24#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GOL.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOL.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#433#434#0" expanded="true" />
-                <element signature="e#462#463#0" expanded="true" />
-                <element signature="e#501#502#0" expanded="true" />
-                <element signature="e#911#912#0" expanded="true" />
-                <element signature="e#941#942#0" expanded="true" />
-                <element signature="e#1235#1236#0" expanded="true" />
-                <element signature="e#1276#1277#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -206,7 +206,6 @@
         <option value="$PROJECT_DIR$/src/main/java/tdd/coding/gym/ClassesUnderTestGoHere.txt" />
         <option value="$PROJECT_DIR$/unit-testing-configuration.iml" />
         <option value="$PROJECT_DIR$/src/main/groovy/tdd/coding/gym/bum.groovy" />
-        <option value="$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLSpec.groovy" />
         <option value="$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOLDisplay.java" />
         <option value="$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLDisplaySpec.groovy" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -215,6 +214,7 @@
         <option value="$PROJECT_DIR$/src/main/java/tdd/coding/gym/Cell.java" />
         <option value="$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/EngineSpec.groovy" />
         <option value="$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOL.java" />
+        <option value="$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLSpec.groovy" />
       </list>
     </option>
   </component>
@@ -381,30 +381,7 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="EngineSpec and 1 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="unit-testing-configuration" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns>
-        <pattern testClass="tdd.coding.gym.EngineSpec" />
-        <pattern testClass="tdd.coding.gym.GOLSpec" />
-      </patterns>
-    </configuration>
-    <configuration name="EngineSpec.Engineee populated with cells #xys has cells #population" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EngineSpec.Engineeeee populated with cells #xys has cells #population" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="tdd.coding.gym.*" />
@@ -416,7 +393,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="tdd.coding.gym" />
       <option name="MAIN_CLASS_NAME" value="tdd.coding.gym.EngineSpec" />
-      <option name="METHOD_NAME" value="Engineee populated with cells #xys has cells #population" />
+      <option name="METHOD_NAME" value="Engineeeee populated with cells #xys has cells #population" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -429,7 +406,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GOLGameSpec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GOLSpec.Populatingggg with #xys gives  #cells" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="tdd.coding.gym.*" />
@@ -440,9 +417,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="tdd.coding.gym" />
-      <option name="MAIN_CLASS_NAME" value="tdd.coding.gym.GOLGameSpec" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="tdd.coding.gym.GOLSpec" />
+      <option name="METHOD_NAME" value="Populatingggg with #xys gives  #cells" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -454,7 +431,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GOLGameSpec.Play Game" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GOLSpec.Populatingggg with #xys gives #expectedCells" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="tdd.coding.gym.*" />
@@ -465,8 +442,33 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="tdd.coding.gym" />
-      <option name="MAIN_CLASS_NAME" value="tdd.coding.gym.GOLGameSpec" />
-      <option name="METHOD_NAME" value="Play Game" />
+      <option name="MAIN_CLASS_NAME" value="tdd.coding.gym.GOLSpec" />
+      <option name="METHOD_NAME" value="Populatingggg with #xys gives #expectedCells" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="GOLSpec.Populatingggg with #xys gives census #expectedCells" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tdd.coding.gym.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="unit-testing-configuration" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="tdd.coding.gym" />
+      <option name="MAIN_CLASS_NAME" value="tdd.coding.gym.GOLSpec" />
+      <option name="METHOD_NAME" value="Populatingggg with #xys gives census #expectedCells" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -558,19 +560,19 @@
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.EngineSpec and 1 more" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.gym in unit-testing-configuration" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GOLGameSpec" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GOLGameSpec.Play Game" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.EngineSpec.Engineee populated with cells #xys has cells #population" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.gym in unit-testing-configuration" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.EngineSpec.Engineeeee populated with cells #xys has cells #population" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GOLSpec.Populatingggg with #xys gives  #cells" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GOLSpec.Populatingggg with #xys gives #expectedCells" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.GOLSpec.Populatingggg with #xys gives census #expectedCells" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.gym in unit-testing-configuration" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.EngineSpec.Engineee populated with cells #xys has cells #population" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GOLGameSpec" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.GOLGameSpec.Play Game" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.EngineSpec and 1 more" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GOLSpec.Populatingggg with #xys gives census #expectedCells" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GOLSpec.Populatingggg with #xys gives #expectedCells" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GOLSpec.Populatingggg with #xys gives  #cells" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.EngineSpec.Engineeeee populated with cells #xys has cells #population" />
       </list>
     </recent_temporary>
   </component>
@@ -596,49 +598,48 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="EngineSpec_Engineee_populated_with_cells_#xys_has_cells_#population - 2018.04.13 at 09h 26m 59s.xml">
-      <configuration name="EngineSpec.Engineee populated with cells #xys has cells #population" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="EngineSpec_Engineee_populated_with_cells_#xys_has_cells_#population - 2018.04.13 at 09h 29m 31s.xml">
-      <configuration name="EngineSpec.Engineee populated with cells #xys has cells #population" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="EngineSpec_Engineee_populated_with_cells_#xys_has_cells_#population - 2018.04.13 at 09h 29m 55s.xml">
-      <configuration name="EngineSpec.Engineee populated with cells #xys has cells #population" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="EngineSpec_Engineee_populated_with_cells_#xys_has_cells_#population - 2018.04.13 at 09h 30m 52s.xml">
-      <configuration name="EngineSpec.Engineee populated with cells #xys has cells #population" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="EngineSpec_Engineee_populated_with_cells_#xys_has_cells_#population - 2018.04.13 at 09h 31m 48s.xml">
-      <configuration name="EngineSpec.Engineee populated with cells #xys has cells #population" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="gym_in_unit-testing-configuration - 2018.04.12 at 20h 41m 40s.xml">
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 09h 57m 00s.xml">
       <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 09h 34m 43s.xml">
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 09h 57m 16s.xml">
       <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 09h 35m 07s.xml">
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 09h 59m 34s.xml">
       <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 09h 35m 19s.xml">
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 10h 00m 11s.xml">
       <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 09h 35m 37s.xml">
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 10h 00m 59s.xml">
+      <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 10h 01m 12s.xml">
+      <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 10h 01m 51s.xml">
+      <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 10h 02m 21s.xml">
+      <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 10h 03m 07s.xml">
+      <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="gym_in_unit-testing-configuration - 2018.04.13 at 10h 32m 56s.xml">
       <configuration name="gym in unit-testing-configuration" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="34" width="1667" height="987" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32623318" sideWeight="0.42092308" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39910313" sideWeight="0.24307692" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.264574" sideWeight="0.24676923" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39910313" sideWeight="0.7569231" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.264574" sideWeight="0.75323075" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295964" sideWeight="0.49784616" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3163077" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25907692" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.3295964" sideWeight="0.4953846" order="9" side_tool="false" content_ui="tabs" x="1131" y="448" width="805" height="294" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23138462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -873,38 +874,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GroovySpecsGoHere.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLGameSpec.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-          <folding>
-            <element signature="e#25#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLSpec.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="e#24#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOLGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
           <folding>
             <element signature="e#91#92#0" expanded="true" />
             <element signature="e#121#122#0" expanded="true" />
@@ -920,30 +893,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLGameSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+          <folding>
+            <element signature="e#25#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/EngineSpec.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="203">
+          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding>
             <element signature="e#24#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GOLSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="22" lean-forward="false" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <element signature="e#24#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/groovy/tdd/coding/gym/GroovySpecsGoHere.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tdd/coding/gym/GOL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#941#942#0" expanded="true" />
-            <element signature="e#1235#1236#0" expanded="true" />
-            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="true" />
+            <element signature="e#1296#1297#0" expanded="true" />
           </folding>
         </state>
       </provider>

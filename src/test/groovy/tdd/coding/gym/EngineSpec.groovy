@@ -14,6 +14,8 @@ class EngineSpec extends Specification {
     }
 
 
+
+
     @Unroll
     def "Engine populated with cells #xys has cells #population" (){
         given:
@@ -27,6 +29,7 @@ class EngineSpec extends Specification {
         "1,1" || "[1,1]"
         "1,1, 2,2" || "[1,1, 2,2]"
     }
+
     @Unroll
     def "Engine populated with cells #xys has embryos #embryos"(){
         given:

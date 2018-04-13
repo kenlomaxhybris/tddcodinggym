@@ -9,17 +9,21 @@ public class GOL {
     Set<Cell> cells = new TreeSet();
     Engine engine = new Engine();
 
+    public GOL(){
+
+    }
+
     public GOL populate(String xys){
         cells = Stream.of(xys.split(", ")).map(xy -> new Cell(xy)).collect(Collectors.toSet());
         return this;
     }
 
-    public int populationSize(){
-        return cells.size();
+    public  Set<Cell> census (){
+        return cells;
     }
 
-    public String census(){
-        return cells.toString();
+    public int populationSize(){
+        return cells.size();
     }
 
     public GOL evolve(){
