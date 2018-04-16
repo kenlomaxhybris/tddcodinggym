@@ -4,14 +4,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.lang.Thread.sleep;
+
 public class GOL {
 
     Set<Cell> cells = new TreeSet();
     Engine engine = new Engine();
-
-    public GOL(){
-
-    }
 
     public GOL populate(String xys){
         cells = Stream.of(xys.split(", ")).map(xy -> new Cell(xy)).collect(Collectors.toSet());
@@ -29,6 +27,30 @@ public class GOL {
     public GOL evolve(){
         cells = engine.populate(cells).evolve();
         return this;
+    }
+
+    public void show( int radius ){
+        for (int y = radius; y >= -radius; y --){
+            for (int x = -radius; x < radius; x ++){
+                String coords =x+","+y;
+                System.out.print( cells.contains(new Cell(coords))?"+": "-");
+            }
+            System.out.println();
+        }
+        System.out.println("==========================");
+    }
+
+    public  static void main (String[] args ) throws InterruptedException {
+        GOL gol = new GOL().populate("-1,0, 0,0, 1,0");
+        int iter = 10;
+        if (args!=null && args.length>0)
+            iter = Integer.parseInt(args[0]);
+        while (iter-- >0) {
+            gol.show(5);
+            sleep(500);
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
     }
 
 }
@@ -71,6 +93,7 @@ class Engine {
     public Map<Cell, Integer> neighbourMapping = new HashMap();
     public Set<Cell> nextGeneration = new TreeSet();
 
+    public Engine(){}
     public Engine populate(Set<Cell> cells ){
         this.liveCells = cells;
         setEmbryos();
@@ -124,6 +147,7 @@ class Engine {
         liveCells.forEach(cell -> {
             int n = neighbourMapping.get(cell);
             if (n==2 || n==3)
+
                 nextGeneration.add( new Cell(cell.x, cell.y));
             }
         );

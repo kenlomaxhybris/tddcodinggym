@@ -13,9 +13,6 @@ class EngineSpec extends Specification {
         engine.liveCells.isEmpty();
     }
 
-
-
-
     @Unroll
     def "Engine populated with cells #xys has cells #population" (){
         given:

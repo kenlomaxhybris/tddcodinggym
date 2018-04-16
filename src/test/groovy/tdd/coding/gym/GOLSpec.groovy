@@ -1,5 +1,6 @@
 package tdd.coding.gym
 
+import org.springframework.boot.test.rule.OutputCapture
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -39,5 +40,43 @@ class GOLSpec extends Specification {
         xys   || census
         "5,5, 6,5, 7,5" ||  [ new Cell(6,5), new Cell(6,6), new Cell(6,4) ] as Set
 
+    }
+
+    @org.junit.Rule
+    OutputCapture capture = new OutputCapture()
+
+    def "GOL Display ok"(){
+        given:
+        def gol = new GOL().populate("-1,0, 0,0, 1,0");
+
+        when:
+        gol.show(5);
+
+        then:
+        capture.toString() ==
+                """----------
+----------
+----------
+----------
+----------
+----+++---
+----------
+----------
+----------
+----------
+----------
+==========================
+"""
+    }
+
+    def "Play Game"(){
+        given:
+        String[] repeats = ["10"];
+
+        when:
+        GOL.main( repeats );
+
+        then:
+        capture.toString().contains("+++");
     }
 }
