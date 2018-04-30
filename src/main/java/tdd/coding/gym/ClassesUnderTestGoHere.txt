@@ -3,6 +3,6 @@ Develop Game of Life
 
 
 100% Test Coverage
-Clear Green Acceptance Criteria readble by all.
+Clear Acceptance Criteria
 
 

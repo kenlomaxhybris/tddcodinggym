@@ -6,77 +6,79 @@ import spock.lang.Unroll
 
 class GOLSpec extends Specification {
 
-    def "A new GOL has a populationSize of zero"() {
+    def "A new GOL has a population of zero"(){
         given:
         def gol = new GOL();
+
         expect:
-        gol.populationSize() == 0;
+        gol.getPopulationSize() == 0;
     }
 
     @Unroll
-    def "Populating with #xys gives census #expectedCells"() {
+    def "A GOL populated with xys #xys has cells #cells"(){
         given:
         def gol = new GOL();
 
         expect:
-        gol.populate(xys ).cells.equals( expectedCells )
+        gol.populate(xys).allCells == cells
 
         where:
-        xys       || expectedCells
-        "1,1" ||  [ new Cell(1,1) ] as Set
-        "1,1, 2,2" ||  [ new Cell(1,1), new Cell(2,2) ] as Set
-        "1,1, 1,1" ||  [ new Cell(1,1)] as Set
-     }
+        xys || cells
+        "1,1" || Cell.cells( "1,1")
+        "1,1, 2,2, 1,1" || Cell.cells( "1,1, 2,2")
+    }
 
     @Unroll
-    def "Populating with #xys evolves to #census"() {
+    def "An empty GOL looks like #display"(){
         given:
-        def gol = new GOL();
+        def gol = new GOL()
 
         expect:
-        gol.populate(xys).evolve().census() == census
+        gol.show(5) == display
 
         where:
-        xys   || census
-        "5,5, 6,5, 7,5" ||  [ new Cell(6,5), new Cell(6,6), new Cell(6,4) ] as Set
+        display || something
+        "----------\n----------\n----------\n----------\n----------\n----------\n----------\n----------\n----------\n----------\n----------\n" || ""
+    }
 
+    @Unroll
+    def "A GOL populated with xys -1,0, 0,0, 1,0 looks like #display"(){
+        given:
+        def gol = new GOL();
+        gol.populate("-1,0, 0,0, 1,0")
+
+        expect:
+        gol.show(5) == display
+
+        where:
+        display || something
+        "----------\n----------\n----------\n----------\n----------\n----+++---\n----------\n----------\n----------\n----------\n----------\n" || ""
+    }
+
+    def "A GOL populated with xys -1,0, 0,0, 1,0 evolves to  #display"(){
+        given:
+        def gol = new GOL();
+        gol.populate("-1,0, 0,0, 1,0").evolve();
+
+        expect:
+        gol.show(5) ==display
+
+        where:
+        display || something
+        "----------\n----------\n----------\n----------\n-----+----\n-----+----\n-----+----\n----------\n----------\n----------\n----------\n" || ""
     }
 
     @org.junit.Rule
     OutputCapture capture = new OutputCapture()
 
-    def "GOL Display ok"(){
+    def "Playing Game shows results on the screen"(){
         given:
-        def gol = new GOL().populate("-1,0, 0,0, 1,0");
-
+        def gol = new GOL().populate("0,0, 1,0, 2,0, 3,0, 4,0, 5,0, 6,0, 7,0");
         when:
-        gol.show(5);
-
-        then:
-        capture.toString() ==
-                """----------
-----------
-----------
-----------
-----------
-----+++---
-----------
-----------
-----------
-----------
-----------
-==========================
-"""
-    }
-
-    def "Play Game"(){
-        given:
-        String[] repeats = ["10"];
-
-        when:
-        GOL.main( repeats );
+        gol.play( 100,50 );
 
         then:
         capture.toString().contains("+++");
     }
+
 }

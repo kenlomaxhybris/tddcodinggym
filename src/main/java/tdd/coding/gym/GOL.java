@@ -8,68 +8,114 @@ import static java.lang.Thread.sleep;
 
 public class GOL {
 
-    Set<Cell> cells = new TreeSet();
-    Engine engine = new Engine();
+    public Set<Cell> allCells = new TreeSet();
+    public Set<Cell> allNeighbours = new TreeSet();
+    public SortedMap<Cell, Integer> mappingOfCellsToLiveNeighbours = new TreeMap();
+
+    public int getPopulationSize(){
+        return allCells.size();
+    }
 
     public GOL populate(String xys){
-        cells = Stream.of(xys.split(", ")).map(xy -> new Cell(xy)).collect(Collectors.toSet());
+        allCells = Cell.cells( xys );
         return this;
     }
 
-    public  Set<Cell> census (){
-        return cells;
-    }
-
-    public int populationSize(){
-        return cells.size();
-    }
-
-    public GOL evolve(){
-        cells = engine.populate(cells).evolve();
-        return this;
-    }
-
-    public void show( int radius ){
+    public String show( int radius  ){
+        StringBuilder sb= new StringBuilder();
         for (int y = radius; y >= -radius; y --){
             for (int x = -radius; x < radius; x ++){
                 String coords =x+","+y;
-                System.out.print( cells.contains(new Cell(coords))?"+": "-");
+                sb.append( allCells.contains(new Cell(coords))?"+": "-");
             }
-            System.out.println();
+            sb.append("\n");
         }
-        System.out.println("==========================");
+        return sb.toString();
     }
 
-    public  static void main (String[] args ) throws InterruptedException {
-        GOL gol = new GOL().populate("-1,0, 0,0, 1,0");
-        int iter = 10;
-        if (args!=null && args.length>0)
-            iter = Integer.parseInt(args[0]);
-        while (iter-- >0) {
-            gol.show(5);
-            sleep(500);
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-        }
+    private GOL locateEmbryos(){
+        allNeighbours.clear();
+        Set<Cell> neighboursOfLiveCells = new HashSet<>();
+        allCells.stream().forEach(cell -> {
+                    int x = cell.x;
+                    int y = cell.y;
+                    neighboursOfLiveCells.add( new Cell((x-1)+","+(y-1)));
+                    neighboursOfLiveCells.add( new Cell((x-1)+","+(y-0)));
+                    neighboursOfLiveCells.add( new Cell((x-1)+","+(y+1)));
+                    neighboursOfLiveCells.add( new Cell((x-0)+","+(y-1)));
+                    neighboursOfLiveCells.add( new Cell((x-0)+","+(y+1)));
+                    neighboursOfLiveCells.add( new Cell((x+1)+","+(y-1)));
+                    neighboursOfLiveCells.add( new Cell((x+1)+","+(y-0)));
+                    neighboursOfLiveCells.add( new Cell((x+1)+","+(y+1)));
+                }
+        );
+        neighboursOfLiveCells.removeAll(allCells);
+        allNeighbours = neighboursOfLiveCells;
+        return this;
     }
 
+    private GOL setNeighbourMapping(){
+        allCells.stream().forEach(cell ->  setAllNeighbours(cell) );
+        allNeighbours.stream().forEach(cell ->  setAllNeighbours(cell) );
+        return this;
+    }
+
+    private void setAllNeighbours(Cell cell) {
+        int liveNeighbours = 0;
+        for (int dx=-1; dx<=1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                if (dx == 0 && dy == 0)
+                    continue;
+                Cell neighbourCoords = new Cell((cell.x + dx) + "," + (cell.y + dy));
+                if (allCells.contains(neighbourCoords))
+                    liveNeighbours++;
+            }
+        }
+        mappingOfCellsToLiveNeighbours.put( cell, liveNeighbours );
+   }
+
+    public GOL evolve(){
+        locateEmbryos();
+        setNeighbourMapping();
+
+        Set<Cell> nextGeneration = new HashSet<>();
+        allCells.forEach(cell -> {
+                    int n = mappingOfCellsToLiveNeighbours.get(cell);
+                    if (n==2 || n==3)
+                        nextGeneration.add(cell);
+                }
+        );
+        allNeighbours.forEach(cell -> {
+                    int n = mappingOfCellsToLiveNeighbours.get(cell);
+                    if (n==3)
+                        nextGeneration.add( cell);
+                }
+        );
+        allCells = nextGeneration;
+        return this;
+    }
+
+    public void play ( int repeats, int radius ) throws InterruptedException {
+        while (repeats-- >0) {
+            System.out.println( show(radius));
+            evolve();
+           // sleep(500);
+        }
+    }
 }
 
-class Cell{
+class Cell implements Comparable{
     int x;
     int y;
+
+    public static Set<Cell>cells(String xys){
+        return new TreeSet( Stream.of(xys.split(", ")).map(xy -> new Cell(xy)).collect(
+                Collectors.toSet()));
+    }
 
     public Cell(String xy){
         x = Integer.parseInt(xy.substring(0, xy.indexOf(",")));
         y = Integer.parseInt(xy.substring(xy.indexOf(",")+1));
-    }
-
-    public Cell(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-    public String toString(){
-        return x+","+y;
     }
 
     @Override
@@ -85,79 +131,28 @@ class Cell{
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    @Override
+    public int compareTo(Object o) {
+        Cell c2 = (Cell)o;
+        if (this.x == c2.x )
+            return this.y-c2.y;
+        return this.x-c2.x;
+    }
+
+    public String toString(){
+        return x+","+y;
+    }
 }
 
-class Engine {
-    public Set<Cell> liveCells = new TreeSet();
-    public Set<Cell> embryos = new TreeSet();
-    public Map<Cell, Integer> neighbourMapping = new HashMap();
-    public Set<Cell> nextGeneration = new TreeSet();
-
-    public Engine(){}
-    public Engine populate(Set<Cell> cells ){
-        this.liveCells = cells;
-        setEmbryos();
-        setNeighbourMapping();
-        return this;
-    }
-
-    private Engine setNeighbourMapping(){
-        liveCells.stream().forEach( cell ->  setNeighbours(cell) );
-        embryos.stream().forEach( cell ->  setNeighbours(cell) );
-        return this;
-    }
-
-    private void setNeighbours(Cell cell) {
-        int liveNeighbours = 0;
-        for (int dx=-1; dx<=1; dx++) {
-            for (int dy = -1; dy <= 1; dy++) {
-                if (dx == 0 && dy == 0)
-                    continue;
-                Cell neighbourCoords = new Cell((cell.x + dx) + "," + (cell.y + dy));
-                if (liveCells.contains(neighbourCoords))
-                    liveNeighbours++;
-            }
+class MapFactory {
+    public static Map<Cell, Integer>  map( Set<Cell> cells, int ... neighbours ){
+        Set<Cell> orderedSet = new TreeSet(cells);
+        Map<Cell, Integer>map = new TreeMap();
+        int i=0;
+        for (Cell c: orderedSet){
+            map.put(c, neighbours[i++]);
         }
-        neighbourMapping.put( cell, liveNeighbours );
+        return map;
     }
-
-    private Engine setEmbryos(){
-        Set<Cell> neighboursOfLiveCells = new HashSet<>();
-        liveCells.stream().forEach(  cell ->
-                {
-                    int x = cell.x;
-                    int y = cell.y;
-                    neighboursOfLiveCells.add( new Cell((x-1)+","+(y-1)));
-                    neighboursOfLiveCells.add( new Cell((x-1)+","+(y-0)));
-                    neighboursOfLiveCells.add( new Cell((x-1)+","+(y+1)));
-                    neighboursOfLiveCells.add( new Cell((x-0)+","+(y-1)));
-                    neighboursOfLiveCells.add( new Cell((x-0)+","+(y+1)));
-                    neighboursOfLiveCells.add( new Cell((x+1)+","+(y-1)));
-                    neighboursOfLiveCells.add( new Cell((x+1)+","+(y-0)));
-                    neighboursOfLiveCells.add( new Cell((x+1)+","+(y+1)));
-                }
-        );
-        neighboursOfLiveCells.removeAll(liveCells);
-        embryos = neighboursOfLiveCells;
-        return this;
-    }
-
-    public Set<Cell> evolve(){
-        Set<Cell> nextGeneration = new HashSet<>();
-        liveCells.forEach(cell -> {
-            int n = neighbourMapping.get(cell);
-            if (n==2 || n==3)
-
-                nextGeneration.add( new Cell(cell.x, cell.y));
-            }
-        );
-        embryos.forEach(cell -> {
-            int n = neighbourMapping.get(cell);
-            if (n==3)
-                nextGeneration.add( new Cell(cell.x, cell.y));
-            }
-        );
-        return nextGeneration;
-   }
-
 }
