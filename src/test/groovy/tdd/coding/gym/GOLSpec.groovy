@@ -24,8 +24,8 @@ class GOLSpec extends Specification {
 
         where:
         xys || cells
-        "1,1" || Cell.cells( "1,1")
-        "1,1, 2,2, 1,1" || Cell.cells( "1,1, 2,2")
+        "1,1" || Cell.createCells( "1,1")
+        "1,1, 2,2, 1,1" || Cell.createCells( "1,1, 2,2")
     }
 
     @Unroll

@@ -17,7 +17,7 @@ public class GOL {
     }
 
     public GOL populate(String xys){
-        allCells = Cell.cells( xys );
+        allCells = Cell.createCells( xys );
         return this;
     }
 
@@ -33,7 +33,7 @@ public class GOL {
         return sb.toString();
     }
 
-    private GOL locateEmbryos(){
+    private GOL locateNeighbours(){
         allNeighbours.clear();
         Set<Cell> neighboursOfLiveCells = new HashSet<>();
         allCells.stream().forEach(cell -> {
@@ -75,7 +75,7 @@ public class GOL {
    }
 
     public GOL evolve(){
-        locateEmbryos();
+        locateNeighbours();
         setNeighbourMapping();
 
         Set<Cell> nextGeneration = new HashSet<>();
@@ -99,7 +99,6 @@ public class GOL {
         while (repeats-- >0) {
             System.out.println( show(radius));
             evolve();
-           // sleep(500);
         }
     }
 }
@@ -108,15 +107,27 @@ class Cell implements Comparable{
     int x;
     int y;
 
-    public static Set<Cell>cells(String xys){
-        return new TreeSet( Stream.of(xys.split(", ")).map(xy -> new Cell(xy)).collect(
-                Collectors.toSet()));
-    }
-
+    // Constructor/Factory methods
     public Cell(String xy){
         x = Integer.parseInt(xy.substring(0, xy.indexOf(",")));
         y = Integer.parseInt(xy.substring(xy.indexOf(",")+1));
     }
+
+    public static Set<Cell> createCells(String xys){
+        return new TreeSet( Stream.of(xys.split(", ")).map(xy -> new Cell(xy)).collect(Collectors.toSet()));
+    }
+
+    public static Map<Cell, Integer> createMapping(TreeSet<Cell> orderedSetOfCells, int ... neighbours ){
+        Map<Cell, Integer>map = new TreeMap();
+        int i=0;
+
+        for (Cell c: orderedSetOfCells){
+            map.put(c, neighbours[i++]);
+        }
+        return map;
+    }
+
+    // For Set logic
 
     @Override
     public boolean equals(Object o) {
@@ -140,19 +151,8 @@ class Cell implements Comparable{
         return this.x-c2.x;
     }
 
+    // To output
     public String toString(){
         return x+","+y;
-    }
-}
-
-class MapFactory {
-    public static Map<Cell, Integer>  map( Set<Cell> cells, int ... neighbours ){
-        Set<Cell> orderedSet = new TreeSet(cells);
-        Map<Cell, Integer>map = new TreeMap();
-        int i=0;
-        for (Cell c: orderedSet){
-            map.put(c, neighbours[i++]);
-        }
-        return map;
     }
 }
